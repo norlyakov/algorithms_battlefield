@@ -1,0 +1,6 @@
+*.pyc
+*.pyo
+*.log
+*.iml
+code_here.py
+.idea/

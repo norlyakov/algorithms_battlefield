@@ -60,8 +60,6 @@ def main():
     _assert_single_linked_list(new_head, [1, 1, 2, 3, 4, 4])
 
 
-
-
 def _assert_single_linked_list(head_node: ListNode, l: list):
     cur_node = head_node
     for i in l:

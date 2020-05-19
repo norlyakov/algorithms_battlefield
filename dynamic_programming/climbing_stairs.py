@@ -23,9 +23,10 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 """
+import math
 
 
-def climbStairs(n: int) -> int:
+def climbStairs_dyn(n: int) -> int:
     prev1 = 1
     prev2 = 0
     res = 0
@@ -36,18 +37,22 @@ def climbStairs(n: int) -> int:
     return res
 
 
+def climbStairs_fib(n: int) -> int:
+    sqrt5 = math.sqrt(5)
+    fib_n = math.pow((1 + sqrt5) / 2, n + 1) - math.pow((1 - sqrt5) / 2, n + 1)
+    return int(fib_n // sqrt5)
+
+
 def main():
-    n = 0
-    assert climbStairs(n) == 0
+    for climbStairs in (climbStairs_dyn, climbStairs_fib):
+        n = 1
+        assert climbStairs(n) == 1
 
-    n = 1
-    assert climbStairs(n) == 1
+        n = 2
+        assert climbStairs(n) == 2
 
-    n = 2
-    assert climbStairs(n) == 2
-
-    n = 6
-    assert climbStairs(n) == 13
+        n = 6
+        assert climbStairs(n) == 13
 
 
 if __name__ == '__main__':
